@@ -96,7 +96,6 @@ export class ProjectController{
     // Actualizar un proyecto
     static updatedProject = async (req : Request, res: Response) => {
         try {
-            
             await req.project.update(req.body)
             res.json('Proyecto actualizado correctamente')
         } catch (error) {
