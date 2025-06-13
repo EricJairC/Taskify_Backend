@@ -23,6 +23,11 @@ connectDB()
 
 const app = express()
 
+// Ping
+app.get('/ping', cors(), (req, res) => {
+  res.status(200).send('pong')
+})
+
 // Permitimos la conexion con cors
 app.use(cors(corsConfig))
 
@@ -35,8 +40,7 @@ app.use(express.json())
 // Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/projects', projectRoutes)
-app.use('/ping', (req, res) => {
-  res.status(200).send('pong');
-});
+
+
 
 export default app
